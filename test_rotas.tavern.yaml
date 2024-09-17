@@ -9,3 +9,16 @@ stages:
       status_code: 200
       headers:
         content-type: "text/html; charset=utf-8"
+
+---
+test_name: "Testando rota de criação de jogo"
+
+stages:
+  - name: Tentar acessar a página de criação de jogo sem login
+    request:
+      url: "http://localhost:5000/novo"
+      method: GET
+    response:
+      status_code: 302  # Redireciona para a página de login
+      headers:
+        location: "/login?proxima=/novo"  # Verifica o redirecionamento para o login
