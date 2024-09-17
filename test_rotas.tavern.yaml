@@ -1,0 +1,11 @@
+test_name: "Testar rota de login"
+
+stages:
+  - name: "Verificar se a página de login é carregada"
+    request:
+      url: "http://localhost:5000/login"
+      method: GET
+    response:
+      status_code: 200
+      headers:
+        content-type: "text/html; charset=utf-8"
